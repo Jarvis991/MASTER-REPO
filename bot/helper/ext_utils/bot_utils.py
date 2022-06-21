@@ -150,6 +150,16 @@ def get_readable_message():
                             f" | <b>🧲 Leechs : {download.torrent_info().num_leechs}</b>"
                 except:
                     pass
+                if download.message.chat.type != 'private':
+                    try:
+                        chatid = str(download.message.chat.id)[4:]
+                        msg += f'\n<b>Source Msg: </b><a href="https://t.me/c/{chatid}/{download.message.message_id}">Click Here</a>'
+                    except:
+                        pass
+                msg += f'\n<b>User:</b> ️<code>{download.message.from_user.first_name}</code>️(<code>{download.message.from_user.id}</code>)'  
+                    except:
+                        pass
+                msg += f'\n<b>User:</b> ️<code>{download.message.from_user.first_name}</code>️(<code>{download.message.from_user.id}</code>)'           
                 msg += f"\n<b>🔰 GID : {download.gid()}</b>" \
                        f"\n<b>🚫 Cancel :</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
             elif download.status() == MirrorStatus.STATUS_SEEDING:

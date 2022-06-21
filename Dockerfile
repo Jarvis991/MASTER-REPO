@@ -1,5 +1,5 @@
 #FROM anasty17/mltb:latest
-FROM anasty17/mltb:arm64
+FROM arkonn/mltb:arm64
 
 WORKDIR /usr/src/app
 RUN chmod 777 /usr/src/app
